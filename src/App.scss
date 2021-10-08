@@ -1,0 +1,47 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: rgb(248, 248, 248);
+}
+
+h1 {
+  text-align: center;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+img,
+label {
+  user-select: none;
+}
+
+.MuiContainer-root {
+	padding: 40px 0;
+}
+
+.card {
+  background-color: white;
+  box-shadow: rgb(0 0 0 / 10%) 0px 0px 7px 1px;
+  border-radius: 8px;
+
+	&-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+    align-items: start;
+    justify-items: center;
+    padding-top: 15px;
+	}
+}
