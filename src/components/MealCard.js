@@ -11,13 +11,15 @@ const MealCard = ({ meal }) => {
 
   return (
     <Card sx={{ maxWidth: 345 }}>
-      <MealCardMedia thumb={meal.strMealThumb} />
-      <MealCardContent
-        meal={meal.strMeal}
-        area={meal.strArea}
-        tags={meal.strTags}
-        youtube={meal.strYoutube}
-      />
+      <div className='flex-container'>
+        <MealCardMedia thumb={meal.strMealThumb} />
+        <MealCardContent
+          meal={meal.strMeal}
+          area={meal.strArea}
+          tags={meal.strTags}
+          youtube={meal.strYoutube}
+        />
+      </div>
       <MealCardActions
         expanded={expanded}
         setExpanded={setExpanded}
