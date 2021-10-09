@@ -5,6 +5,8 @@ import DeleteOutlineRoundedIcon from '@mui/icons-material/DeleteOutlineRounded';
 import { pink } from '@mui/material/colors';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { styled } from '@mui/material/styles';
+import { useDispatch } from 'react-redux';
+import { likeToggle, deleteMeal } from '../redux/actionCreators';
 import PropTypes from 'prop-types';
 
 const ExpandMore = styled(props => {
@@ -19,6 +21,7 @@ const ExpandMore = styled(props => {
 }));
 
 const MealCardActions = ({ expanded, setExpanded, id, isLiked }) => {
+  const dispatch = useDispatch();
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -30,6 +33,7 @@ const MealCardActions = ({ expanded, setExpanded, id, isLiked }) => {
         icon={<FavoriteBorder />}
         checkedIcon={<Favorite />}
         checked={!!isLiked}
+        onChange={() => dispatch(likeToggle(id))}
         sx={{
           color: 'black',
           '&.Mui-checked': {
@@ -54,6 +58,7 @@ const MealCardActions = ({ expanded, setExpanded, id, isLiked }) => {
       />
       <IconButton
         aria-label='delete'
+        onClick={() => dispatch(deleteMeal(id))}
         sx={{
           color: 'black',
           '& .MuiSvgIcon-root': {
@@ -67,10 +72,10 @@ const MealCardActions = ({ expanded, setExpanded, id, isLiked }) => {
 };
 
 MealCardActions.propTypes = {
-	expanded: PropTypes.bool.isRequired,
-	setExpanded: PropTypes.func.isRequired,
-	id: PropTypes.string.isRequired,
-	isLiked: PropTypes.bool
-}
+  expanded: PropTypes.bool.isRequired,
+  setExpanded: PropTypes.func.isRequired,
+  id: PropTypes.string.isRequired,
+  isLiked: PropTypes.bool
+};
 
 export default MealCardActions;
