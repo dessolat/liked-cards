@@ -1,14 +1,16 @@
 import axios from 'axios';
-import { setMeals } from '../redux/actionCreators';
+import { setError, setMeals, toggleLoading } from '../redux/actionCreators';
 
 const fetchMeals = () => async dispatch => {
-	try {
-		const { data } = await axios.get('https://themealdb.com/api/json/v1/1/search.php?f=c');
-		dispatch(setMeals(data.meals))
-		
-	} catch (err) {
-		console.error(err.message)
-	}
+  try {
+    dispatch(toggleLoading());
+    const {data} = await axios.get('https://themealdb.com/api/json/v1/1/search.php?f=c');
+		data !== '' && dispatch(setMeals(data.meals));
+  } catch (err) {
+    dispatch(setError(err.message));
+  } finally {
+    dispatch(toggleLoading());
+  }
 };
 
 export default fetchMeals;

@@ -22,8 +22,28 @@ body {
   background: rgb(248, 248, 248);
 }
 
-h1 {
+h1, h2 {
   text-align: center;
+}
+
+.header {
+	padding-top: 40px;
+
+	@media only screen and (max-width: 420px) {
+    padding-top: 20px;
+  }
+}
+
+.error-message {
+	display: flex;
+	height: 100vh;
+	justify-content: center;
+	align-items: center;
+	color: red;
+}
+
+.empty-meals {
+	padding-top: 110px;
 }
 
 button {
@@ -38,8 +58,8 @@ label {
   user-select: none;
 }
 
-.MuiContainer-root {
-	padding: 40px 0;
+.filters {
+  text-align: center;
 }
 
 div.MuiCard-root {

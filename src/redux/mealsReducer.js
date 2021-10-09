@@ -1,10 +1,16 @@
 const defaultState = {
-  meals: []
+  meals: [],
+  isLoading: false,
+  error: ''
 };
 
 const reducer = (state = defaultState, action) => {
   switch (action.type) {
-		case 'SET_MEALS':
+    case 'TOGGLE_LOADING':
+      return { ...state, isLoading: !state.isLoading };
+    case 'SET_ERROR':
+      return { ...state, error: action.payload };
+    case 'SET_MEALS':
       return { ...state, meals: action.payload };
     case 'LIKE_TOGGLE':
       const mappedMeals = state.meals.map(meal =>
