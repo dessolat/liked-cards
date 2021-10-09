@@ -6,6 +6,17 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 16px;
+
+  @media screen and (max-width: 1275px) {
+    font-size: 14px;
+  }
+  @media screen and (max-width: 362px) {
+    font-size: 13.7px;
+  }
+}
+
 body {
   font-family: 'Roboto', sans-serif;
   background: rgb(248, 248, 248);
@@ -31,6 +42,18 @@ label {
 	padding: 40px 0;
 }
 
+div.MuiCard-root {
+	@media only screen and (max-width: 760px) {
+		max-width: 380px;
+	}
+  @media only screen and (max-width: 520px) {
+    max-width: 450px;
+  }
+  @media only screen and (max-width: 420px) {
+    max-width: 400px;
+  }
+}
+
 .card {
   background-color: white;
   box-shadow: rgb(0 0 0 / 10%) 0px 0px 7px 1px;
@@ -43,5 +66,20 @@ label {
     align-items: start;
     justify-items: center;
     padding-top: 15px;
+
+		@media only screen and (max-width: 1352px) {
+      grid-gap: 15px;
+    }
+    @media only screen and (max-width: 1150px) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    @media only screen and (max-width: 768px) {
+      grid-template-columns: 1fr 1fr;
+    }
+    @media only screen and (max-width: 520px) {
+      grid-template-columns: 1fr;
+      grid-row-gap: 15px;
+      grid-column-gap: 0;
+    }
 	}
 }

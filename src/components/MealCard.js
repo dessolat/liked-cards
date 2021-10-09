@@ -1,20 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card } from '@mui/material';
 import MealCardMedia from './MealCardMedia';
 import MealCardContent from './MealCardContent';
+import MealCardActions from './MealCardActions';
+import MealCardCollapse from './MealCardCollapse';
 import PropTypes from 'prop-types';
 
 const MealCard = ({ meal }) => {
-	return (
-		<Card sx={{ maxWidth: 345 }}>
-			<MealCardMedia thumb={meal.strMealThumb} />
-			<MealCardContent
+  const [expanded, setExpanded] = useState(false);
+
+  return (
+    <Card sx={{ maxWidth: 345 }}>
+      <MealCardMedia thumb={meal.strMealThumb} />
+      <MealCardContent
         meal={meal.strMeal}
         area={meal.strArea}
         tags={meal.strTags}
         youtube={meal.strYoutube}
       />
-		</Card>
+      <MealCardActions
+        expanded={expanded}
+        setExpanded={setExpanded}
+        id={meal.idMeal}
+        isLiked={meal.isLiked}
+      />
+      <MealCardCollapse expanded={expanded} instructions={meal.strInstructions} />
+    </Card>
   );
 };
 
