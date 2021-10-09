@@ -1,11 +1,11 @@
-import meals from '../Meals';
-
 const defaultState = {
-  meals
+  meals: []
 };
 
 const reducer = (state = defaultState, action) => {
   switch (action.type) {
+		case 'SET_MEALS':
+      return { ...state, meals: action.payload };
     case 'LIKE_TOGGLE':
       const mappedMeals = state.meals.map(meal =>
         meal.idMeal === action.payload ? { ...meal, isLiked: !meal.isLiked } : meal
